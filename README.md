@@ -1,6 +1,5 @@
 # Project Title: Focus Timer
 
-[Live Project](focuszen.vercel.app)
 
 ## Description:
 This project is a simple focus timer that helps you manage your work or study sessions effectively. It provides a clean and intuitive interface with adjustable time settings.
