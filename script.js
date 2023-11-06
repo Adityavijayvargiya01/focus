@@ -1,5 +1,6 @@
 const semicircles = document.querySelectorAll('.semi-circle');
 const timer = document.querySelector('.timer');
+let timerloop;
 
 timer.innerHTML = `
     <div>00</div>
@@ -16,7 +17,14 @@ document.getElementById("start_button").addEventListener("click", function() {
     const hr = parseInt(document.getElementById('hours').value) || 0;
     const min = parseInt(document.getElementById('minutes').value) || 0;
     const sec = parseInt(document.getElementById('seconds').value) || 0;
-    
+
+    document.getElementById("start_button").innerHTML = "RESET";
+
+    if(document.getElementById("start_button").innerHTML == "RESET") {
+        document.getElementById("start_button").addEventListener("click", function() {
+            location.reload();
+        });
+    }
 
 const hours = hr * 3600000;
 const minutes = min * 60000;
@@ -94,14 +102,22 @@ function countDownTimer() {
 
 
 
-const timerloop = setInterval(countDownTimer); 
+timerloop = setInterval(countDownTimer); 
 countDownTimer(); 
 
 });
 
 
 
-document.getElementById("restart_button").addEventListener("click", function() {
-    location.reload();
+document.getElementById("pause_button").addEventListener("click", function() {
+    const button1 = document.getElementById("start_button");
+    const button2 = document.getElementById("pause_button");
+    if (button1.innerHTML === "RESET") {
+        button2.innerHTML = "PLAY"; 
+        clearInterval(timerloop); 
+    }
 });
+
+
+
 
